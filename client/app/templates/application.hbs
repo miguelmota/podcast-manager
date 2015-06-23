@@ -1,0 +1,11 @@
+<main class="container">
+  <header>
+    <h1>Podcast Manager</h1>
+
+    {{#if sessionService.token}}
+      <a {{action "logout"}} href class="logout">Log out</a>
+    {{/if}}
+  </header>
+
+  {{outlet}}
+</main>

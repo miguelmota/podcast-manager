@@ -1,0 +1,19 @@
+{{outlet}}
+
+<fieldset>
+  <form>
+    <div class="control-group">
+      <label>Username:</label>
+      {{input type="text" value=username}}
+    </div>
+
+    <div class="control-group">
+      <label>Password:</label>
+      {{input type="password" value=password}}
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" {{action "login"}}>Sign in</button>
+    </div>
+  </form>
+</fieldset>

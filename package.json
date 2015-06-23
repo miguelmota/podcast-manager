@@ -1,0 +1,33 @@
+{
+  "name": "podcast-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Mota <hello@miguelmota.com> (http://www.miguelmota.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1.35",
+    "body-parser": "^1.13.1",
+    "compactobject": "0.0.3",
+    "express": "^4.13.0",
+    "get-prop": "0.0.8",
+    "lodash": "^3.9.3",
+    "moment": "^2.10.3",
+    "multer": "^0.1.8",
+    "podcast": "^0.2.1",
+    "request": "^2.58.0",
+    "s3": "^4.4.0",
+    "sequelize": "^3.3.0",
+    "sqlite3": "^3.0.8",
+    "tape": "^4.0.0",
+    "xml2js": "^0.4.9",
+    "xmlbuilder": "^2.6.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/miguelmota/podcast-manager.git"
+  }
+}

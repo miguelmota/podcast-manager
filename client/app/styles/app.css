@@ -1,0 +1,170 @@
+@import url(http://fonts.googleapis.com/css?family=Play);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  font-size: 32px;
+  font-family: 'Play', sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  display: inline-block;
+}
+
+header .logout {
+  float: right;
+  color: red;
+}
+
+form {
+  display: block;
+}
+
+form .control-group {
+  display: block;
+  margin: 0 0 15px 0;
+  padding: 10px 0;
+}
+
+form label {
+  display: block;
+  margin: 0 0 6px 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #333;
+  font-size: 32px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s ease-in;
+  border-radius: 4px;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form textarea:focus {
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}
+
+fieldset {
+  border: 1px solid #F1F1F1;
+  transition: all 0.3s ease-in;
+}
+
+fieldset:hover {
+  background-color: #FCFEFF;
+}
+
+fieldset button,
+fieldset select {
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  margin: 0 0 5px 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in;
+  border-radius: 4px;
+  background: #ccc;
+  background-image: -webkit-linear-gradient(top, #eee, #ccc);
+}
+
+form button:hover {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+form .delete {
+  color: red;
+}
+
+fieldset {
+  margin: 0 0 60px 0;
+}
+
+.podcast-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}
+
+.podcast-item:nth-child(even) {
+  background: #fbfbfb;
+}
+
+.podcast-item.is-new {
+  background: #FDFFEB;
+}
+
+.xml-form {
+  padding: 10px;
+  background-color: #E6F2FF;
+}
+
+.flash-notification {
+  display: block;
+}
+
+.flash-notification_inner {
+  display: block;
+  padding: 20px 0;
+}
+
+.flash-notification.success {
+  color: green;
+  border: 1px solid green;
+}
+
+.flash-notification.error {
+  color: red;
+  border: 1px solid red;
+}
+
+nav {
+  padding: 20px 0;
+}
+
+nav .active {
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(odd) td {
+  background: #F3F3F3;
+}
+
+table td {
+  padding: 10px;
+  border: 1px solid #F1F1F1;
+}
+
+table th {
+  text-align: left;
+}
+
+table .delete {
+  color: red;
+}

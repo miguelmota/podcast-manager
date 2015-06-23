@@ -1,0 +1,4 @@
+config/auth.json
+config/s3.json
+
+db/*

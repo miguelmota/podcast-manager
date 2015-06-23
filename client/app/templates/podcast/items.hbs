@@ -1,0 +1,87 @@
+<h2>Podcast Items</h2>
+
+<fieldset class="podcast-items">
+  {{#each item in model}}
+    <form {{action "save" on="submit"}} {{bind-attr class=":podcast-item item.isNew"}}>
+      <div class="control-group">
+        <label>id:</label>
+        {{item.id}}
+      </div>
+      <div class="control-group">
+        <label>Title:</label>
+        {{input type="text" value=item.title placeholder="Title"}}
+      </div>
+      <div class="control-group">
+        <label>Author:</label>
+        {{input type="text" value=item.author placeholder="Author"}}
+      </div>
+      <div class="control-group">
+        <label>Subtitle:</label>
+        {{input type="text" value=item.subtitle placeholder="Subtitle"}}
+      </div>
+      <div class="control-group">
+        <label>Summary:</label>
+        {{input type="text" value=item.summary placeholder="Summary"}}
+      </div>
+      <div class="control-group">
+        <label>Image:</label>
+        {{view "select"
+         content=imageFiles
+         prompt="Select File"
+         optionValuePath="content.Url"
+         optionLabelPath="content.Url"
+         value=item.image
+         }}
+        {{input type="text" value=item.image placeholder="Image"}}
+      </div>
+      <div class="control-group">
+        <label>Enclosure Url (S3 file Url):</label>
+        {{view "select"
+         content=audioFiles
+         prompt="Select File"
+         optionValuePath="content"
+         optionLabelPath="content.Url"
+         value=item.file
+         }}
+        {{input type="text" value=item.enclosureUrl placeholder="Enclosure Url"}}
+      </div>
+      <div class="control-group">
+        <label>Enclosure Length (S3 file Size, in bytes):</label>
+        {{input type="text" value=item.enclosureLength placeholder="Enclosure Length"}}
+      </div>
+      <div class="control-group">
+        <label>GUID (same as Enclosure Url):</label>
+        {{input type="text" value=item.guid placeholder="GUID"}}
+      </div>
+      <div class="control-group">
+        <label>Publication date (Ex. Thu, 01 January 2015 12:00:00 PST):</label>
+        {{input type="text" value=item.pubDate placeholder="Publication Date"}}
+      </div>
+      <div class="control-group">
+        <label>Duration:</label>
+        {{input type="text" value=item.duration placeholder="Duration (Ex 1:00:00)"}}
+      </div>
+      <div class="control-group">
+        <label>Explicit:</label>
+        {{input type="checkbox" checked=item.isExplicit}}
+      </div>
+      <div class="control-group">
+        <label>Closed Captioned:</label>
+        {{input type="checkbox" checked=item.closedCaptioned}}
+      </div>
+      <div class="control-group">
+        <label>Order (can leave blank):</label>
+        {{input type="text" value=item.order placeholder="Order"}}
+      </div>
+      <div class="form-actions">
+        <button type="submit" {{action "save"}}>Save</button>
+        <a {{action "remove" item}} class="delete" href>Delete</a>
+      </div>
+    </form>
+  {{else}}
+    <p><em>No items</em></p>
+  {{/each}}
+  <button {{action "addItem"}} class="add-button">Add Item</button>
+</fieldset>
+
+{{outlet}}

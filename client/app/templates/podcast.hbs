@@ -1,0 +1,140 @@
+<fieldset>
+  <h2>S3 (files)</h2>
+  <table>
+    <tr>
+      <th>Size</th>
+      <th>Key</th>
+      <th>Last Modified</th>
+      <th></th>
+    </tr>
+    {{#each item in s3}}
+      <tr>
+        <td>{{item.Size}}</td>
+        <td><a {{bind-attr href=item.Url}} target="_blank">{{item.Key}}</a></td>
+        <td>{{item.LastModified}}</td>
+        <td><a href {{action "removeS3Item" item}} class="delete">Delete</a></td>
+      </tr>
+    {{/each}}
+  </table>
+
+  <form {{action "addS3Item" on="submit"}} class="s3-form">
+    <div class="control-group">
+      <label>File:</label>
+      {{input-file}}
+    </div>
+    <div class="control-group">
+      <label>File Name (include extension):</label>
+      {{input type="text" name="name" value=filename placeholder="File Name (Ex. My_Talk_Show_Episode_001.mp3)"}}
+    </div>
+    <div class="form-actions">
+      {{#if s3UploadLoading}}
+        <p>Uploading...</p>
+      {{else}}
+        <button {{action "addS3Item"}} class="add-button">Upload</button>
+      {{/if}}
+    </div>
+  </form>
+</fieldset>
+
+<fieldset>
+  <h2>Podcast</h2>
+
+  <form {{action "save" on="submit"}} class="podcast-form">
+    <div class="control-group">
+      <label>Title:</label>
+      {{input type="text" value=model.title placeholder="Title (Ex. My Talk Show)"}}
+    </div>
+    <div class="control-group">
+      <label>Link:</label>
+      {{input type="text" value=model.link placeholder="Link"}}
+    </div>
+    <div class="control-group">
+      <label>Language:</label>
+      {{input type="text" value=model.language placeholder="Language (Ex. en-us)"}}
+    </div>
+    <div class="control-group">
+      <label>Copyright:</label>
+      {{input type="text" value=model.copyright placeholder="Copyright"}}
+    </div>
+    <div class="control-group">
+      <label>Subtitle:</label>
+      {{input type="text" value=model.subtitle placeholder="Subtitle"}}
+    </div>
+    <div class="control-group">
+      <label>Author:</label>
+      {{input type="text" value=model.author placeholder="Author"}}
+    </div>
+    <div class="control-group">
+      <label>Summary:</label>
+      {{textarea value=model.summary placeholder="Summary" rows=5}}
+    </div>
+    <div class="control-group">
+      <label>Description:</label>
+      {{textarea value=model.description placeholder="Description" rows=5}}
+    </div>
+    <div class="control-group">
+      <label>Name:</label>
+      {{input type="text" value=model.name placeholder="Name"}}
+    </div>
+    <div class="control-group">
+      <label>Email:</label>
+      {{input type="email" value=model.email placeholder="Email"}}
+    </div>
+    <div class="control-group">
+      <label>Image:</label>
+      {{view "select"
+       content=imageFiles
+       prompt="Select File"
+       optionValuePath="content.Url"
+       optionLabelPath="content.Url"
+       value=model.image
+       }}
+      {{input type="text" value=model.image placeholder="Image"}}
+    </div>
+    <div class="control-group">
+      <label>Categories (Ex. Music):</label>
+      {{input type="text" value=model.categories placeholder="Categories"}}
+    </div>
+    <div class="control-group">
+      <label>Complete (No more episodes):</label>
+      {{input type="checkbox" checked=model.complete}}
+    </div>
+    <div class="control-group">
+      <label>Explicit:</label>
+      {{input type="checkbox" checked=model.explicit}}
+    </div>
+    <div class="control-group">
+      <label>New Feed Url (use this if changing feed url):</label>
+      {{input type="text" value=model.newFeedUrl placeholder="New Feed Url"}}
+    </div>
+    <div class="form-actions">
+      <button type="submit" {{action "save"}}>Save</button>
+    </div>
+  </form>
+</fieldset>
+
+{{outlet}}
+
+<fieldset>
+  <h2>Publish</h2>
+
+  <form {{action "save" on="submit"}} class="xml-form">
+    <div class="control-group">
+      <button class="button" {{action "generate"}}>Generate XML</button>
+      {{#if generatedXML}}
+        <label>Generated XML:</label>
+        <textarea placeholder="Generated XML" rows="3">{{generatedXML}}</textarea>
+      {{/if}}
+    </div>
+
+    {{#if generatedXML}}
+      <div class="control-group">
+        {{input type="text" value=podcastXMLFilename placeholder="XML Filename (Ex. feed.xml)"}}
+      </div>
+      <label>XML Feed Filename:</label>
+      <div class="form-actions">
+        <button class="button" {{action "publish"}}>Publish Feed</button>
+      </div>
+    {{/if}}
+  </form>
+</fieldset>
