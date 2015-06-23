@@ -400,8 +400,8 @@ app.post('/api/1/xml', function(req, res) {
               'itunes:email': podcast.email,
             }
           },
-          'itunes:complete': podcast.complete ? 'yes' : 'no',
-          'itunes:explicit': podcast.explicit ? 'yes' : 'no',
+          'itunes:complete': podcast.complete === true || podcast.complete === 'yes' ? 'yes' : 'no',
+          'itunes:explicit': podcast.explicit === true || podcast.explicit === 'yes' ? 'yes' : 'no',
           'itunes:new-feed-url': podcast.newFeedUrl,
         });
 

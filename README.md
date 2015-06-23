@@ -50,6 +50,10 @@ ember build --environment=production
 # serve dist/
 ```
 
+# Todo
+
+Make it more modular.
+
 # License
 
 MIT
