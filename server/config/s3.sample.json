@@ -1,5 +1,6 @@
 {
   "accessKeyId": "mykeyid",
   "secretAccessKey": "myaccesskey",
-  "region": "us-east-1"
+  "region": "us-east-1",
+  "bucket": "mybucket"
 }

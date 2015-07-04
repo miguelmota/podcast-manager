@@ -398,11 +398,11 @@ app.post('/api/1/xml', function(req, res) {
             'itunes:owner': {
               'itunes:name': podcast.name,
               'itunes:email': podcast.email,
-            }
-          },
-          'itunes:complete': podcast.complete === true || podcast.complete === 'yes' ? 'yes' : 'no',
-          'itunes:explicit': podcast.explicit === true || podcast.explicit === 'yes' ? 'yes' : 'no',
-          'itunes:new-feed-url': podcast.newFeedUrl,
+            },
+            'itunes:complete': podcast.complete === true || podcast.complete === 'yes' ? 'yes' : 'no',
+            'itunes:explicit': podcast.explicit === true || podcast.explicit === 'yes' ? 'yes' : 'no',
+            'itunes:new-feed-url': podcast.newFeedUrl,
+          }
         });
 
         var items = podcastItems.map(function(item) {

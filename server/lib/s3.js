@@ -2,13 +2,17 @@
 
 var AWS = require('aws-sdk');
 var _ = require('lodash');
+var s3configPath = __dirname + '/../config/s3.json';
+var s3config = require(s3configPath);
 
-AWS.config.loadFromPath(__dirname + '/../config/s3.json');
+var bucket = s3config.bucket;
+
+AWS.config.loadFromPath(s3configPath);
 
 var s3 = new AWS.S3();
 
 var globalParams = {
-  Bucket: 'robit'
+  Bucket: bucket
 };
 
 function list(params, callback) {
